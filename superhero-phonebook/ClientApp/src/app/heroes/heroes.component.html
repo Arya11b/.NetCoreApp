@@ -1,0 +1,17 @@
+<div>
+  <h2> demanding superheroes</h2>
+  <ul class="heroes" >
+    <li *ngFor="let hero of heroes" (click)="onSelect(selectedHero)" [class.selected]="selectedHero === hero">
+      <span class="badge">
+        {{hero.id}}
+      </span>
+      <span class="centerA">
+        {{hero.name}}
+      </span>
+      <span class="badgerl">
+      {{hero.phoneNumber}}
+        </span>
+    </li>
+  </ul>
+</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
