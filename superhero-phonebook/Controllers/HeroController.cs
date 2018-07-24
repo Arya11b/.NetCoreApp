@@ -58,14 +58,23 @@ namespace superhero_phonebook.Controllers
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        public void Put(int id,Hero person)
+        public IActionResult Update(int id, Hero person)
         {
-            Hero result;
-            if ((result = _context.heroes.Find(id)) != null)
+            var hero = _context.heroes.Find(id);
+            if (hero == null)
             {
-                _context.heroes.Update(result);
-                _context.SaveChanges();
+                return NotFound();
             }
+
+            hero.firstName = person.firstName;
+            hero.lastName = person.lastName;
+            hero.alias = person.alias;
+            hero.phoneNumber = person.phoneNumber;
+            hero.picture = person.picture;
+
+            _context.heroes.Update(hero);
+            _context.SaveChanges();
+            return NoContent();
         }
 
         // DELETE api/<controller>/5
