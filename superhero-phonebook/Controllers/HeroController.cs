@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using superhero_phonebook.Models;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace superhero_phonebook.Controllers
 {
@@ -35,11 +34,16 @@ namespace superhero_phonebook.Controllers
             var result = _context.heroes.Find(id);
             return result;
         }
-        [HttpGet("number={number}", Name = "GetByNumber")]
-        public Hero GetByNumber(string number)
+        [HttpGet("phone={id}", Name = "GetPhoneById")]
+        public Phone GetPhoneById(int id)
         {
-            var result = _context.heroes.SingleOrDefault(hero => hero.phoneNumber == number);
+            var result = _context.phones.Find(id);
             return result;
+        }
+        [HttpGet("phone", Name = "GetPhone")]
+        public IEnumerable<Phone> GetPhone(int id)
+        {
+            return _context.phones.ToList();
         }
         [HttpGet("name={alias}", Name = "GetByAlias")]
         public Hero GetByName(string alias)
@@ -49,7 +53,7 @@ namespace superhero_phonebook.Controllers
         }
         // POST api/<controller>
         [HttpPost]
-        public IActionResult Post(Hero person)
+        public IActionResult Post([FromBody]Hero person)
         {
             _context.heroes.Add(person);
             _context.SaveChanges();
@@ -71,6 +75,7 @@ namespace superhero_phonebook.Controllers
             hero.alias = person.alias;
             hero.phoneNumber = person.phoneNumber;
             hero.picture = person.picture;
+            hero.parentId = person.parentId;
 
             _context.heroes.Update(hero);
             _context.SaveChanges();

@@ -23,8 +23,12 @@ namespace superhero_phonebook
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddDbContext<HeroContext>(opt => opt.UseInMemoryDatabase("Contacts"));
+            // Add framework services.
+            services.AddMvc();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // database init
+            //services.AddDbContext<HeroContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ContactsDb")));
+            services.AddDbContext<HeroContext>(opt => opt.UseInMemoryDatabase("ContactsDb"));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

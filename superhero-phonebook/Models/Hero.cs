@@ -11,9 +11,11 @@ namespace superhero_phonebook.Models
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string alias { get; set; }
-        public string phoneNumber { get; set; }
+        public List<Phone> phoneNumber { get; set; }
         public string picture { get; set; }
-        public Hero(int id,string firstName, string lastName, string alias, string phoneNumber,string picture)
+        public List<Address> address { get; set; }
+        public int parentId { get; set; }
+        public Hero(int id,string firstName, string lastName, string alias, List<Address> address, List<Phone> phoneNumber,string picture)
         {
             this.id = id;
             this.firstName = firstName;
@@ -21,6 +23,12 @@ namespace superhero_phonebook.Models
             this.phoneNumber = phoneNumber;
             this.alias = alias;
             this.picture = picture;
+            this.address = address;
+            this.parentId = parentId;
+        }
+        public Hero()
+        {
+
         }
     }
 }
