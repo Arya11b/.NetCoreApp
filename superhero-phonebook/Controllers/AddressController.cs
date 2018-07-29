@@ -43,11 +43,11 @@ namespace superhero_addressbook.Controllers
         }
         // POST api/<controller>
         [HttpPost]
-        public IActionResult Post([FromBody]Address addressNumber)
+        public IActionResult Post([FromBody]Address address)
         {
-            _context.addresses.Add(addressNumber);
+            _context.addresses.Add(address);
             _context.SaveChanges();
-            return CreatedAtRoute("GetAddressById", new { id = addressNumber.id }, addressNumber);
+            return CreatedAtRoute("GetAddressById", new { id = address.id }, address);
         }
 
         // PUT api/<controller>/5
