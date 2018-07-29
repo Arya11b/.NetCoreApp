@@ -34,17 +34,6 @@ namespace superhero_phonebook.Controllers
             var result = _context.heroes.Find(id);
             return result;
         }
-        [HttpGet("phone={id}", Name = "GetPhoneById")]
-        public Phone GetPhoneById(int id)
-        {
-            var result = _context.phones.Find(id);
-            return result;
-        }
-        [HttpGet("phone", Name = "GetPhone")]
-        public IEnumerable<Phone> GetPhone(int id)
-        {
-            return _context.phones.ToList();
-        }
         [HttpGet("name={alias}", Name = "GetByAlias")]
         public Hero GetByName(string alias)
         {
