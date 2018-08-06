@@ -44,8 +44,12 @@ namespace superhero_phonebook.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Hero person)
         {
-            _context.heroes.Add(person);
-            _context.SaveChanges();
+            try
+            {
+                _context.heroes.Add(person);
+                _context.SaveChanges();
+            }
+            catch (System.ArgumentException) { }
             return CreatedAtRoute("GetById", new { id = person.id }, person);
         }
 
@@ -62,7 +66,6 @@ namespace superhero_phonebook.Controllers
             hero.firstName = person.firstName;
             hero.lastName = person.lastName;
             hero.alias = person.alias;
-            hero.phoneNumber = person.phoneNumber;
             hero.picture = person.picture;
             hero.parentId = person.parentId;
 

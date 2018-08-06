@@ -8,11 +8,11 @@ namespace superhero_phonebook.Models
     public class Group
 {
     public int id { get; set; }
-    public List<Hero> heroesGroup { get; set; }
-    public Group(int id, List<Hero> heroesGroup)
+    public string name { get; set; }
+    public Group(int id, string name)
     {
         this.id = id;
-        this.heroesGroup = heroesGroup;
+        this.name = name;
     }
     public Group()
     {
