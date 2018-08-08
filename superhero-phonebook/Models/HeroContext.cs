@@ -15,5 +15,6 @@ namespace superhero_phonebook.Models
         public DbSet<Group> groups { get; set; }
         public DbSet<Address> addresses { get; set; }
         public DbSet<Phone> phones { get; set; }
+        public DbSet<ToDo> todos { get; set; }
     }
 }
