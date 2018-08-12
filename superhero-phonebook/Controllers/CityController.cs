@@ -34,13 +34,6 @@ public class CityController : ControllerBase
         var result = _context.cities.Find(id);
         return result;
     }
-    //Get By Parent Id
-    [HttpGet("p={parentId}", Name = "GetCityByParentId")]
-    public IEnumerable<City> GetByParentId(int parentId)
-    {
-        var result = _context.cities.Where(x => x.parentId == parentId);
-        return result.ToList();
-    }
     // POST api/<controller>
     [HttpPost]
     public IActionResult Post([FromBody]City city)
@@ -61,7 +54,6 @@ public class CityController : ControllerBase
         }
         city.city = newCity.city;
         city.province = newCity.province;
-        city.parentId = newCity.parentId;
         _context.cities.Update(city);
         _context.SaveChanges();
         return NoContent();

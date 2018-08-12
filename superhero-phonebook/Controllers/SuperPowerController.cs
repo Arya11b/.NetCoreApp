@@ -34,13 +34,6 @@ namespace superhero_phonebook.Controllers
             var result = _context.superPowers.Find(id);
             return result;
         }
-        //Get By Parent Id
-        [HttpGet("p={parentId}", Name = "GetSuperPowerByParentId")]
-        public IEnumerable<SuperPower> GetByParentId(int parentId)
-        {
-            var result = _context.superPowers.Where(x => x.parentId == parentId);
-            return result.ToList();
-        }
         // POST api/<controller>
         [HttpPost]
         public IActionResult Post([FromBody]SuperPower superPower)
@@ -59,7 +52,6 @@ namespace superhero_phonebook.Controllers
             {
                 return NotFound();
             }
-            superPower.parentId = newSuperPower.parentId;
             superPower.category = newSuperPower.category;
             superPower.power = newSuperPower.power;
             superPower.type = newSuperPower.type;
