@@ -60,6 +60,7 @@ namespace superhero_todobook.Controllers
             todo.parentId = newToDo.parentId;
             todo.due = newToDo.due;
             todo.note = newToDo.note;
+            todo.done = newToDo.done;
             _context.todos.Update(todo);
             _context.SaveChanges();
             return NoContent();

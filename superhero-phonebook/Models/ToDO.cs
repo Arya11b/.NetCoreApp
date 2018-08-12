@@ -11,12 +11,14 @@ namespace superhero_phonebook.Models
         public int parentId { get; set; }
         public string note { get; set; }
         public DateTime due { get; set; }
-        public ToDo(int id, int parentId, string note, DateTime due)
+        public Boolean done { get; set; }
+        public ToDo(int id, int parentId, string note, DateTime due, Boolean done = false)
         {
             this.id = id;
             this.parentId = parentId;
             this.note = note;
             this.due = due;
+            this.done = done;
         }
     }
 }

@@ -16,5 +16,7 @@ namespace superhero_phonebook.Models
         public DbSet<Address> addresses { get; set; }
         public DbSet<Phone> phones { get; set; }
         public DbSet<ToDo> todos { get; set; }
+        public DbSet<City> cities { get; set; }
+        public DbSet<SuperPower> superPowers { get; set; }
     }
 }
