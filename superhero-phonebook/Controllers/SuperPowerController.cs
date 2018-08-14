@@ -54,7 +54,6 @@ namespace superhero_phonebook.Controllers
             }
             superPower.category = newSuperPower.category;
             superPower.power = newSuperPower.power;
-            superPower.type = newSuperPower.type;
             _context.superPowers.Update(superPower);
             _context.SaveChanges();
             return NoContent();

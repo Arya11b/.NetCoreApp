@@ -5,14 +5,18 @@ using System.Threading.Tasks;
 
 namespace superhero_phonebook.Models
 {
-    public class IdList
+    public class CitiesList
     {
         public int id { get; set; }
-        public IdList(int id)
+        public int cityId { get; set; }
+        public int parentId { get; set; }
+        public CitiesList(int id, int cityId, int parentId)
         {
             this.id = id;
+            this.parentId = parentId;
+            this.cityId = cityId;
         }
-        public IdList()
+        public CitiesList()
         {
             this.id = 0;
         }

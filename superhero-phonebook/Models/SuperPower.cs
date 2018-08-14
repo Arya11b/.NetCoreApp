@@ -9,14 +9,12 @@ namespace superhero_phonebook.Models
     {
         public int id { get; set; }
         public string power { get; set; }
-        public string type { get; set; }
         public string category { get; set; }
-        public SuperPower(int id, string power, string type, string category)
+        public SuperPower(int id, string power, string category)
         {
             this.id = id;
             this.power = power;
             this.category = category;
-            this.type = type;
         }
     }
 }

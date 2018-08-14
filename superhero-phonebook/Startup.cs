@@ -27,7 +27,8 @@ namespace superhero_phonebook
             services.AddMvc();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             // database init
-            //services.AddDbContext<HeroContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ContactsDb")));
+            //var connection = @"Server=(localdb)\mssqllocaldb;Database=ContactsDb;Trusted_Connection=True;Integrated Security = True;ConnectRetryCount=0";
+            //services.AddDbContext<HeroContext>(opt => opt.UseSqlServer(connection));
             services.AddDbContext<HeroContext>(opt => opt.UseInMemoryDatabase("ContactsDb"));
 
             // In production, the Angular files will be served from this directory
